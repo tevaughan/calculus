@@ -1,0 +1,99 @@
+
+\usepackage{amsmath}   % for \text
+\usepackage{amsthm}
+\usepackage{amsfonts}  % for \mathbb
+\usepackage{answers}   % problems and answers
+\usepackage[greek,english]{babel}
+                       % language selection
+\usepackage{booktabs}  % for \toprule, \midrule, \bottomrule in tabular env.
+
+\usepackage[margin=10pt,font={sl},labelfont=bf]{caption}
+                       % formatting figure captions
+
+\usepackage{fancyhdr}
+\usepackage{framed}    % environment for framed box
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage[rgb]{xcolor}  % must be loaded before tikz
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{times}
+\usepackage{vmargin}
+
+\usepackage[colorlinks=true,citecolor=blue,hyperfootnotes=false]{hyperref}
+                       % This must be the last package.
+
+% Babel setup. I want the polutoniko version of Greek for the rich set of
+% accents needed properly to quote from John's gospel.
+\languageattribute{greek}{polutoniko}
+
+% Tikz setup.
+\usetikzlibrary{patterns}  % hatching
+\tikzset{>=latex}          % arrow tips
+
+% Answers setup.
+\Newassociation{solution}{Solution}{sol}
+
+% Amsthm setup.
+% Empty argument to newtheoremstyle leaves default.
+\newtheoremstyle{mytheorem}%                   name
+{\topsep}%                                     space above
+{\topsep}%                                     space below
+{\slshape}%                                    body font
+{0pt}%                                         indent
+{\bfseries}%                                   head font
+{\ }%                                          head punctuation
+{5pt plus 1pt minus 1pt}%                      head space
+{\thmname{#1}\thmnumber{\ #2}:\thmnote{\ #3}}% head spec
+\theoremstyle{mytheorem}
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{postulate}{Postulate}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{theorem}{Theorem}[chapter]
+
+\selectlanguage{english} % Configure babel.
+
+% vmargin setup
+\setpapersize{USletter}
+\setmarginsrb%
+{0.375in}%           left
+{0.375in}%           top
+{0.375in}%           right
+{0.5in}%             bottom
+{3\baselineskip}%    headheight
+{2\baselineskip}%    headsep
+{3\baselineskip}%    footheight
+{4\baselineskip}%    footskip
+
+% mydate macro
+\newcommand{\mydate}{%
+   \number\year\space%
+   \ifcase\month\or%
+      Jan\or\ Feb\or\ Mar\or\ Apr\or\ May\or\ Jun\or%
+      Jul\or\ Aug\or\ Sep\or\ Oct\or\ Nov\or\ Dec
+   \fi\space%
+   \number\day%
+}
+
+\newcommand{\doctitle}{Calculus}
+\newcommand{\docsubtitle}{The Mathematics of Modern Science}
+\newcommand{\docauthor}{Thomas E. Vaughan}
+
+% fancyhdr settings
+\pagestyle{fancy}
+\lhead{%
+   \sffamily
+   \textbf{\doctitle}\\
+   \docsubtitle}
+\chead{}
+\rhead{%
+   \includegraphics[height=2\baselineskip]{logo}
+}
+
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\lfoot{}
+\cfoot{\sffamily\thepage}
+\rfoot{}
+
